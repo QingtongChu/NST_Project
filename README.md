@@ -5,6 +5,6 @@ Implementation of *A Neural Algorithm of Artistic Style* (Gatys et al.) using Py
 ### Folder layout
 See `nst/`, `scripts/`, and `assets/` for modular code.
 
-### QUick start
+### Quick start
 ```bash
 python scripts/verify_setup.py
