@@ -1,0 +1,27 @@
+# OS-specific
+.DS_Store
+.Trash-*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+venv/
+.env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Project outputs
+outputs/
+assets/output/
+
+# IDEs
+.vscode/
+
+# Logs & cache
+*.log
+.cache/
+
