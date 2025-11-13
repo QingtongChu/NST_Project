@@ -49,6 +49,8 @@ class VGG19FeatureExtractor(nn.Module):
                 if i == idx:
                     feats[name] = t
         return feats
+
+
     
 
         
