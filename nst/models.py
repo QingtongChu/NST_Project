@@ -21,7 +21,8 @@ class VGG19FeatureExtractor(nn.Module):
         for i,m in enumerate(vgg):
             if isinstance(m, nn.ReLU):
                 vgg[i] = nn.ReLU(inplace=False)
-        
+            if isinstance(m, nn.MaxPool2d):
+                vgg[i] = nn.AvgPool2d(kernel_size=m.kernel_size, stride=m.stride, padding=m.padding)
         # turn on the evaluation mode
         self.features = vgg.eval()
 

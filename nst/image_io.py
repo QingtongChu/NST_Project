@@ -15,7 +15,7 @@ def load_image(path, max_size=512):
         new_size = [int(img.width * scale), int(img.height * scale)]
         img = img.resize(new_size, Image.LANCZOS)
 
-        return img
+    return img
 
 # make sure img is tensor with the right dimension
 def preprocess(img: Image.Image, device="cpu"):
