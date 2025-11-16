@@ -1,6 +1,6 @@
 import torch
 import torch.nn.functional as F
-from .features import gram_matrix
+from nst.features import gram_matrix
 
 def content_loss(gen_feats: dict, content_feats: dict, layer: str="conv4_2"):
     F_l = gen_feats[layer]
@@ -21,6 +21,7 @@ def style_loss(gen_feats: dict, style_feats: dict, style_layers: list[str], laye
         N_l = C
         M_l = H * W
 
+
         G_l = gram_matrix(F_l)
         A_l = gram_matrix(S_l)
 
@@ -29,4 +30,3 @@ def style_loss(gen_feats: dict, style_feats: dict, style_layers: list[str], laye
         w_l = layer_weights.get(layer, 1.0)
         total = total + w_l * E_l
     return total
-    
