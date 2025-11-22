@@ -32,13 +32,13 @@ def preprocess(img: Image.Image, device="cpu"):
 # convert back to viewable image
 def deprocess(x: torch.Tensor):
     # match the mean and std with dim of img
-    mean = torch.Tensor(VGG_MEAN, device=x.device).view(1, 3, 1, 1)
-    std = torch.Tensor(VGG_STD, device=x.device).view(1, 3, 1, 1)
+    mean = torch.tensor(VGG_MEAN).view(1, 3, 1, 1).to(x.device)
+    std = torch.tensor(VGG_STD).view(1, 3, 1, 1).to(x.device)
 
     # denorm
     y = x * std + mean
-    y = torch.clamp(0, 1)
-    y = y.squeeze(0).detach().to("cpu")
+    y = y.clamp(0, 1)
+    y = y.squeeze(0).detach().cpu()
 
     return transforms.ToPILImage()(y)
 

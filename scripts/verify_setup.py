@@ -1,5 +1,3 @@
-
-
 import torch
 from nst.models import VGG19FeatureExtractor
 from nst.image_io import load_image, preprocess
