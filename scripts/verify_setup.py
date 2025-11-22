@@ -1,10 +1,4 @@
-import os
-import sys
 
-# Add project root (NST_Project) to sys.path
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-if ROOT not in sys.path:
-    sys.path.insert(0, ROOT)
 
 import torch
 from nst.models import VGG19FeatureExtractor
@@ -14,7 +8,7 @@ from nst.losses import content_loss, style_loss
 from pathlib import Path
 
 def main():
-    device = "cuda" if torch.cuda.is_available else "cpu"
+    device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"device being used: {device}")
 
     c_path = Path("assets/content").glob("*.*")
